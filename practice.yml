@@ -1,3 +1,23 @@
+- name: Variabes info
+  hosts: local
+  connextion: local
+  vars:
+    COURSE: ansible
+    DURATION: 10hr
+    TRAINER: Sivakumar
+  tasks:
+  - name: print course info
+    ansible.builtin.debug:
+      msg: "Hello {{ COURSE }} course duration {{ DURATION }}, Trainer {{ TRAINER }}"
+
+
+
+
+
+
+
+
+
 # - name: print details
 #   hosts: local
 #   connection: local
@@ -5,16 +25,18 @@
 #   - name: print name
 #     ansible.builtin.debug:
 #       msg: "Hello world"
-- name: Install nginx server
-  hosts: frontend
-  become: yes
-  tasks:
-  - name: install nginx
-    ansible.builtin.package:
-      name: nginx
-      state: installed
-  - name: enable and start nginx
-    ansible.builtin.service:
-      name: nginx
-      status: started
-      enabled: yes
+
+
+# - name: Install nginx server
+#   hosts: frontend
+#   become: yes
+#   tasks:
+#   - name: install nginx
+#     ansible.builtin.package:
+#       name: nginx
+#       state: installed
+#   - name: enable and start nginx
+#     ansible.builtin.service:
+#       name: nginx
+#       status: started
+#       enabled: yes
