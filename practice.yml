@@ -1,14 +1,14 @@
-- name: Variabes info
-  hosts: local
-  connection: local
-  vars:
-    COURSE: ansible
-    DURATION: 10hr
-    TRAINER: Sivakumar
-  tasks:
-  - name: print course info
-    ansible.builtin.debug:
-      msg: "Hello {{ COURSE }} course duration {{ DURATION }}, Trainer {{ TRAINER }}"
+# - name: Variabes info
+#   hosts: local
+#   connection: local
+#   vars:
+#     COURSE: ansible
+#     DURATION: 10hr
+#     TRAINER: Sivakumar
+#   tasks:
+#   - name: print course info
+#     ansible.builtin.debug:
+#       msg: "Hello {{ COURSE }} course duration {{ DURATION }}, Trainer {{ TRAINER }}"
 
 - name: prompt
   hosts: local
