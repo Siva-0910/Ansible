@@ -1,6 +1,6 @@
 - name: Variabes info
   hosts: local
-  connextion: local
+  connection: local
   vars:
     COURSE: ansible
     DURATION: 10hr
