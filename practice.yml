@@ -12,7 +12,7 @@
   - name: install nginx
     ansible.builtin.package:
       name: nginx
-      state: 
+      state: installed
   - name: enable and start nginx
     ansible.builtin.service:
       name: nginx
