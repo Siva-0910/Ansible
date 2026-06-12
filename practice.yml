@@ -16,8 +16,9 @@
   vars_prompt:
   - name: USERNAME
     prompt: plrase enter name
-    ansible.builtin.debug:
-      msg: "{{ USERNAME }}"
+  tasks:  
+  ansible.builtin.debug:
+    msg: "{{ USERNAME }}"
   
 
 
