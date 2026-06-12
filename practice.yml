@@ -1,7 +1,14 @@
-- name: print details
-  hosts: local
-  connection: local
+# - name: print details
+#   hosts: local
+#   connection: local
+#   tasks:
+#   - name: print name
+#     ansible.builtin.debug:
+#       msg: "Hello world"
+- name: Install nginx server
+  hosts: frontend
   tasks:
-  - name: print name
-    ansible.builtin.debug:
-      msg: "Hello world"
+  - name: install nginx
+    ansible.builtin.package:
+      name: nginx
+      state: installed
