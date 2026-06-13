@@ -20,6 +20,17 @@
   - name: print name  
     ansible.builtin.debug:
       msg: "{{ USERNAME }}"
+
+- name: print condition 
+  hosts: local
+  connetion: local
+  vars:
+    number: 80
+  tasks:
+  - name: print value
+    ansible.builtin.debug:
+     msg: "Number is {{ number }} is leass than 100"
+    when: number > 100      
   
 
 
