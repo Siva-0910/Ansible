@@ -10,16 +10,16 @@
 #     ansible.builtin.debug:
 #       msg: "Hello {{ COURSE }} course duration {{ DURATION }}, Trainer {{ TRAINER }}"
 
-- name: prompt
-  hosts: local
-  connection: local
-  vars_prompt:
-  - name: USERNAME
-    prompt: plrase enter name
-  tasks:
-  - name: print name  
-    ansible.builtin.debug:
-      msg: "{{ USERNAME }}"
+# - name: prompt
+#   hosts: local
+#   connection: local
+#   vars_prompt:
+#   - name: USERNAME
+#     prompt: plrase enter name
+#   tasks:
+#   - name: print name  
+#     ansible.builtin.debug:
+#       msg: "{{ USERNAME }}"
 
 - name: print condition 
   hosts: local
