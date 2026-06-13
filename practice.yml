@@ -23,7 +23,7 @@
 
 - name: print condition 
   hosts: local
-  connetion: local
+  connection: local
   vars:
     number: 80
   tasks:
