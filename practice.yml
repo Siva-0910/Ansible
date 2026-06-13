@@ -30,7 +30,7 @@
   - name: print value
     ansible.builtin.debug:
      msg: "Number is {{ number }} is leass than 100"
-    when: number > 100      
+    when: number < 100      
   
 
 
