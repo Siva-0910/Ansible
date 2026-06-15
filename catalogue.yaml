@@ -3,4 +3,4 @@
   become: yes
   tasks:
   - name: disable defaut version
-    ansible.builtin.command: dnf module disable nginx
+    ansible.builtin.command: dnf module disable nodejs -y
