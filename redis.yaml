@@ -1,0 +1,9 @@
+- name: configure redis server
+  hosts: redis
+  become: yes
+  - name: disable default version
+    ansible.builtin.command: dnf module disable redis -yes
+
+  - name: enable redis-7 version
+    ansible.builtin.command: dnf module enable redis:7 -y
+  
