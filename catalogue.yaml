@@ -3,6 +3,4 @@
   become: yes
   tasks:
   - name: disable defaut version
-    ansible.builtin.service:
-      name: nodejs
-      status: disable
+    ansible.builtin.command: dnf module disable nginx
