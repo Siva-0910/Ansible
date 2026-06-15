@@ -4,7 +4,7 @@
   - name: Copy mongodb repos
     ansible.builtin.copy:
       src: mongo.repo 
-      dest: etc/yum.repos.d/mongo.repos
+      dest: /etc/yum.repos.d/mongo.repos
 
   - name: Install mongo-org
     ansible.builtin.package:
@@ -13,8 +13,8 @@
 
   - name: allow remote connection
     ansible.builtin.replace:
-      src: etc/mongo.conf
-      regex: "127.0.0.0"
+      path: /etc/mongo.conf
+      regexp: "127.0.0.0"
       replace: "0.0.0.0"
 
   - name: Restart mongo service
