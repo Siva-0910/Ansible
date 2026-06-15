@@ -1,0 +1,8 @@
+- name: configure catalogue server
+  hosts: catalogue
+  become: yes
+  tasks:
+  - name: disable defaut version
+    ansible.builtin.service:
+      name: nodejs
+      status: disable
