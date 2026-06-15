@@ -1,4 +1,4 @@
-- name: configure user server
+- name: configure cart server
   hosts: user
   become: yes
   tasks:
@@ -30,19 +30,19 @@
 
   - name: download user code
     ansible.builtin.get_url:
-      url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip
-      dest: /tmp/user.zip
+      url: https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
+      dest: /tmp/cart.zip
 
   - name: unzip the code
     ansible.builtin.unarchive:
-      src: /tmp/user.zip
+      src: /tmp/cart.zip
       dest: /app
       remote_src: true
 
   - name: sysemctl services
-    ansible.builtin.copy:
-      src: user.service
-      dest: /etc/systemd/system/user.service                      
+    ansible.builtin.code:
+      src: cart.service
+      dest: /etc/systemd/system/cart.service                      
 
   - name: daemon reload
     ansible.builtin.systemd_service:
