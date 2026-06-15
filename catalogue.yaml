@@ -25,7 +25,7 @@
       home: /app
 
   - name: download catalogue code
-    ansible.builtin.url:
+    ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
       dest: /temp/catalogue.zip     
 
