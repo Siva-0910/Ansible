@@ -9,7 +9,7 @@
 
   - name: Install mongo-org
     ansible.builtin.package:
-      name: mongo-org
+      name: mongodb-org
       state: installed
 
   - name: allow remote connection
