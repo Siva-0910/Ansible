@@ -4,3 +4,51 @@
   tasks:
   - name: disable defaut version
     ansible.builtin.command: dnf module disable nodejs -y
+  - name: enable nodejs
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+
+  - name: install nodejs
+    ansible.builtin.package:
+      name: nodejs
+      state: present
+
+  - name: create app directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
+
+  - name: create app user
+    ansible.builtin.user:
+      name: roboshop
+      shell: /sbin/nolgin   
+      system: true
+      home: /app
+
+  - name: download catalogue code
+    ansible.builtin.url:
+      url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
+      dest: /temp/catalogue.zip     
+
+  - name: unzip catalogue code
+    ansible.builtin.unarchieve:
+      src: /tmp/catalogue.zip
+      dest: /app
+
+  - name: download dependies
+    community.general.npm:
+     path /app
+
+  - name: copy system services
+    ansible.builtin.copy:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
+
+  - name: daemon reload
+    ansible.builtin.systemd_reload: 
+      daemon_reload: true
+
+  - name: Start and eanble catalogue
+    ansible.builtin.service:
+      name: catalogue
+      state: started
+      enabled: yes                  
