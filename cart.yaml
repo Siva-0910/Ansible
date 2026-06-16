@@ -40,7 +40,7 @@
       remote_src: true
 
   - name: sysemctl services
-    ansible.builtin.code:
+    ansible.builtin.copy:
       src: cart.service
       dest: /etc/systemd/system/cart.service                      
 
