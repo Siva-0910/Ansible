@@ -33,7 +33,7 @@
       path: /tmp/frontend..zip     
 
   - name: unarchive code
-    ansible.builtin.unarchieve:
+    ansible.builtin.unarchive:
       src: /tmp/frontend.zip
       dest: /usr/share/nginx/html
 
