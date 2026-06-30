@@ -11,3 +11,14 @@
     ansible.builtin.package:
       name: nodejs
       state: present  
+
+  - name: cretae app directory
+    ansible.builtin.file:
+      name: /app
+      state: directory
+
+  - name: create system user
+    ansible.builtin.user:
+      name: roboshop
+      shell: /sbin/nologin
+      system: true
