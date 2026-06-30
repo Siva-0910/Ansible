@@ -39,9 +39,10 @@
       dest: /tmp
 
   - name: unarchieve zip file
-    ansible.builtin.unarchieve:
+    ansible.builtin.unarchive:
       src: /tmp
       dest: /app
+      remote_src: true
 
   - name: install npm dependies
     ansible.builtin.package:
