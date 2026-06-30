@@ -14,8 +14,8 @@
 
   - name: cretae app directory
     ansible.builtin.file:
-      state: directory
       path: /app
+      state: directory
 
   - name: create system user
     ansible.builtin.user:
@@ -23,16 +23,6 @@
       shell: /sbin/nologin
       system: true
       home: /app
-
-  - name: create systemctl service
-    ansible.builtin.copy:
-      src: catalogue.service
-      dest: /etc/systemd/system/catalogue.service
-
-  - name: daemon reload
-    ansible.builtin.systemd_service:
-      daemon_reload: true
-
 
   - name: download code
     ansible.builtin.get_url:
@@ -45,10 +35,18 @@
       dest: /app
       remote_src: true
 
-  - name: install npm dependies
-    ansible.builtin.package:
-      name: npm
-      state: present
+  - name: install dependencies
+    community.general.npm:
+      path: /app
+
+  - name: create systemctl service
+    ansible.builtin.copy:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
+
+  - name: daemon reload
+    ansible.builtin.systemd_service:
+      daemon_reload: true    
 
   - name: start and enable catalogue
     ansible.builtin.service:
