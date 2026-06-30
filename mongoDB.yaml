@@ -17,7 +17,7 @@
       enabled: yes    
   - name: enable reomte access
     ansible.builtin.replace:
-      regexp: '127.0.0.0'
+      regexp: '127.0.0.1'
       replace: '0.0.0.0'
       path: /etc/mongod.conf
   - name: restart mongodb
