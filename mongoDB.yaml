@@ -9,7 +9,7 @@
   - name: install mongodb    
     ansible.builtin.package:
       name: mongodb-org
-      state: install
+      state: present
   - name: start mongodb
     ansible.builtin.service:
       name: mongod
