@@ -2,10 +2,10 @@
   hosts: redis
   tasks:
   - name: disable redis
-    ansible.builtin.command: dng module disable redis
+    ansible.builtin.command: dnf module disable redis -y
 
   - name: enable redis
-    ansible.builtin.command: dnf module enable redis:7 -yes
+    ansible.builtin.command: dnf module enable redis:7 -y
 
   - name: install redis
     ansible.builtin.package:
@@ -16,7 +16,7 @@
     ansible.builtin.replace:
       regexp: '127.0.0.1'
       replace: '0.0.0.0'
-      path: /etc/redis/redis..conf
+      path: /etc/redis/redis.conf
 
   - name: disable protected module
     ansible.builtin.lineinfile:
