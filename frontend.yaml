@@ -24,7 +24,7 @@
 
   - name: create html package
     ansible.builtin.file:
-      path: /user/share/nginx/html
+      path: /usr/share/nginx/html
       state: directory
 
   - name: download code
