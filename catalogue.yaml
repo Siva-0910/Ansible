@@ -1,0 +1,10 @@
+- name: configure catalogue server running on nodejs
+  hosts: catalogue
+  tasks:
+  - name: enable and disable nodejs
+    ansible.builtin.command: dnf module disable nodejs ; dnf module enable nodejs:1.24
+
+  - name: install nodejs
+    ansible.builtin.package:
+      name: nodejs
+      state: present  
