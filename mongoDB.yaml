@@ -7,10 +7,19 @@
       dest: /etc/yum.repos.d/mongo.repo
   - name: install mongodb    
     ansible.builtin.package:
-      name: mongodb
+      name: mongodb-org
       state: install
+  - name: start mongodb
+    ansible.builtin.service:
+      name: mongod
+      state: started
+      enabled: yes    
   - name: enable reomte access
     ansible.builtin.replace:
       regexp: '127.0.0.0'
       replace: '0.0.0.0'
-      path: /etc/mongo.repo
+      path: /etc/mongo.conf
+  - name: restart mongodb
+    ansible.builtin.service:
+      name: mongod
+      state: restarted    
