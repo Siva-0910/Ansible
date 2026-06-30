@@ -1,5 +1,5 @@
 - name: configure frotntend server
-  hosts: frotntend
+  hosts: frontend
   tasks:
   - name: disable default nginx
     ansible.builtin.command: dnf module disable nginx -y
