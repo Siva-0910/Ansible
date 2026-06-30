@@ -36,7 +36,7 @@
     ansible.builtin.unarchive:
       src: /tmp/frontend.zip
       dest: /usr/share/nginx/html
-      remote_src: true
+      remote_src: yes
 
   - name: copy conf file
     ansible.builtin.copy:
