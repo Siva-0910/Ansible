@@ -20,7 +20,7 @@
 
   - name: disable protected module
     ansible.builtin.lineinfile:
-      path: /etc/nginx/nginx.conf
+      path: /etc/nginx/redis.conf
       regexp: 'protected mode'
       line: protected-mode no
 
